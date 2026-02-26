@@ -17,4 +17,5 @@ This document describes the authentication methods supported by this API.
 **Type:** apiKey
 
 - **In:** header
+- **Name:** api_key
 

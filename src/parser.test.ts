@@ -544,6 +544,7 @@ describe("Parser.parse - authSchemes", () => {
 		expect(scheme?.name).toBe("ApiKeyAuth");
 		expect(scheme?.type).toBe("apiKey");
 		expect(scheme?.in).toBe("header");
+		expect(scheme?.apiKeyName).toBe("X-API-Key");
 	});
 
 	test("parses http bearer security scheme", () => {

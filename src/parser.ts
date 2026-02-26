@@ -449,6 +449,7 @@ export class Parser {
 
 			if (scheme.type === "apiKey") {
 				schemeDoc.in = scheme.in;
+				schemeDoc.apiKeyName = scheme.name;
 			} else if (scheme.type === "http") {
 				schemeDoc.scheme = scheme.scheme;
 				schemeDoc.bearerFormat = scheme.bearerFormat;

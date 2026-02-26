@@ -13,6 +13,9 @@ This document describes the authentication methods supported by this API.
 <% } -%>
 <% if (scheme.type === "apiKey") { -%>
 - **In:** <%= scheme.in %>
+<% if (scheme.apiKeyName) { -%>
+- **Name:** <%= scheme.apiKeyName %>
+<% } -%>
 
 <% } else if (scheme.type === "http") { -%>
 - **Scheme:** <%= scheme.scheme %>

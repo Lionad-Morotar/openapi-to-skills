@@ -122,6 +122,7 @@ export interface AuthSchemeDocument {
 	type: string;
 	description?: string;
 	in?: string;
+	apiKeyName?: string;
 	scheme?: string;
 	bearerFormat?: string;
 	flows?: OAuthFlowDocument[];

@@ -177,3 +177,23 @@ describe("TemplateRenderer template fallback", () => {
 		expect(result).toContain("# users");
 	});
 });
+
+describe("TemplateRenderer - authentication", () => {
+	test("renders apiKey header name when present", () => {
+		const renderer = createRenderer();
+		const result = renderer.renderAuthentication([
+			{
+				name: "ApiKeyAuth",
+				type: "apiKey",
+				in: "header",
+				apiKeyName: "x-token",
+				description: "API authentication token",
+			},
+		]);
+
+		expect(result).toContain("## ApiKeyAuth");
+		expect(result).toContain("**Type:** apiKey");
+		expect(result).toContain("- **In:** header");
+		expect(result).toContain("- **Name:** x-token");
+	});
+});

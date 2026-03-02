@@ -317,8 +317,9 @@ export class Parser {
 
 		// Fallback to first available content type
 		const contentTypes = Object.keys(content);
-		if (contentTypes.length > 0) {
-			return content[contentTypes[0]];
+		const firstType = contentTypes[0];
+		if (firstType) {
+			return content[firstType];
 		}
 
 		return undefined;

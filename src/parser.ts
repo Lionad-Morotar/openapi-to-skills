@@ -278,7 +278,7 @@ export class Parser {
 				description?: string;
 				content?: Record<string, { schema?: unknown }>;
 			};
-			const content = res.content?.["application/json"];
+			const content = this.getResponseContent(res.content);
 
 			result.push({
 				status,
@@ -292,6 +292,36 @@ export class Parser {
 		}
 
 		return result;
+	}
+
+	/**
+	 * Get response content, trying multiple content types in order:
+	 * 1. application/json (most common)
+	 * 2. wildcard (e.g., "*\/*")
+	 * 3. First available content type (fallback)
+	 */
+	private getResponseContent(
+		content: Record<string, { schema?: unknown }> | undefined,
+	): { schema?: unknown } | undefined {
+		if (!content) return undefined;
+
+		// Try application/json first (most common)
+		if (content["application/json"]) {
+			return content["application/json"];
+		}
+
+		// Try wildcard content type
+		if (content["*/*"]) {
+			return content["*/*"];
+		}
+
+		// Fallback to first available content type
+		const contentTypes = Object.keys(content);
+		if (contentTypes.length > 0) {
+			return content[contentTypes[0]];
+		}
+
+		return undefined;
 	}
 
 	private parseSecurity(

@@ -21,11 +21,11 @@ Agent Skills solves this by structuring documentation for on-demand reading. Age
 ## Usage
 
 ```bash
-npx openapi-to-skills ./openapi.yaml -o ./output
+npx @lionad/openapi-to-skills ./openapi.yaml -o ./output
 # or
-bunx openapi-to-skills ./openapi.yaml -o ./output
+bunx @lionad/openapi-to-skills ./openapi.yaml -o ./output
 # or from URL
-npx openapi-to-skills https://example.com/openapi.yaml -o ./output
+npx @lionad/openapi-to-skills https://example.com/openapi.yaml -o ./output
 ```
 
 ### Options
@@ -61,7 +61,7 @@ If your OpenAPI spec contains external `$ref` references (e.g., `./common.yaml#/
 
 ```bash
 npx swagger-cli bundle ./api.yaml -o ./bundled.yaml
-npx openapi-to-skills ./bundled.yaml -o ./output
+npx @lionad/openapi-to-skills ./bundled.yaml -o ./output
 ```
 
 ## Programmatic API

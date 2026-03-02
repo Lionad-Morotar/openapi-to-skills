@@ -41,3 +41,6 @@ output/
 # Coverage
 coverage/
 *.lcov
+
+examples/input/service-gpt.json
+examples/output/service-gpt-api/

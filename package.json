@@ -1,5 +1,5 @@
 {
-	"name": "openapi-to-skills",
+	"name": "@lionad/openapi-to-skills",
 	"version": "0.2.3",
 	"description": "Convert OpenAPI specifications to Agent Skills format with progressive disclosure",
 	"type": "module",

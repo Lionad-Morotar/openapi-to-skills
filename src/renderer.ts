@@ -100,10 +100,12 @@ export class TemplateRenderer implements Renderer {
 		});
 	}
 
-	renderSchema(doc: SchemaDocument): string {
+	renderSchema(doc: SchemaDocument, currentPrefix?: string): string {
 		return this.render("schema.md.eta", {
 			...doc,
 			toFileName,
+			currentPrefix,
+			getSchemaRelativePath,
 		});
 	}
 
@@ -141,6 +143,26 @@ export function extractSchemaPrefix(name: string): string {
 	if (underscoreMatch?.[1]) return underscoreMatch[1];
 
 	return "Other";
+}
+
+/**
+ * Calculate relative path from current schema prefix to target schema
+ * @param currentPrefix - Current schema's prefix (directory name)
+ * @param targetName - Target schema name
+ * @returns Relative path like "../Other/Name.md" or "Name.md"
+ */
+export function getSchemaRelativePath(
+	currentPrefix: string,
+	targetName: string,
+): string {
+	const targetPrefix = extractSchemaPrefix(targetName);
+	const fileName = toFileName(targetName);
+
+	if (currentPrefix === targetPrefix) {
+		return `${fileName}.md`;
+	}
+
+	return `../${toFileName(targetPrefix)}/${fileName}.md`;
 }
 
 /**

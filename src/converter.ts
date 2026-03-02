@@ -89,7 +89,7 @@ async function writeSkillOutput(
 
 		// Individual schema files
 		for (const schema of group.schemas) {
-			const schemaMd = renderer.renderSchema(schema);
+			const schemaMd = renderer.renderSchema(schema, group.prefix);
 			await writer.writeFile(
 				join(prefixDir, `${toFileName(schema.name)}.md`),
 				schemaMd,

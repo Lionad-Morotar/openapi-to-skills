@@ -13,7 +13,7 @@
 |-------|------|----------|-------------|
 <% it.fields.forEach(field => { -%>
 <% let type = field.type; -%>
-<% if (field.schema?.ref) { type = `[${field.schema.ref}](${it.toFileName(field.schema.ref)}.md)`; } -%>
+<% if (field.schema?.ref) { type = `[${field.schema.ref}](${it.getSchemaRelativePath(it.currentPrefix, field.schema.ref)})`; } -%>
 | `<%= field.name %>` | <%= type %> | <%= field.required ? "Yes" : "No" %> | <%= field.description ?? "" %> |
 <% }) -%>
 
@@ -28,7 +28,7 @@
 |-------|------|----------|-------------|
 <% field.nestedFields.forEach(nested => { -%>
 <% let type = nested.type; -%>
-<% if (nested.schema?.ref) { type = `[${nested.schema.ref}](${it.toFileName(nested.schema.ref)}.md)`; } -%>
+<% if (nested.schema?.ref) { type = `[${nested.schema.ref}](${it.getSchemaRelativePath(it.currentPrefix, nested.schema.ref)})`; } -%>
 | `<%= nested.name %>` | <%= type %> | <%= nested.required ? "Yes" : "No" %> | <%= nested.description ?? "" %> |
 <% }) -%>
 
@@ -39,7 +39,7 @@
 |-------|------|----------|-------------|
 <% nested.nestedFields.forEach(deep => { -%>
 <% let type = deep.type; -%>
-<% if (deep.schema?.ref) { type = `[${deep.schema.ref}](${it.toFileName(deep.schema.ref)}.md)`; } -%>
+<% if (deep.schema?.ref) { type = `[${deep.schema.ref}](${it.getSchemaRelativePath(it.currentPrefix, deep.schema.ref)})`; } -%>
 | `<%= deep.name %>` | <%= type %> | <%= deep.required ? "Yes" : "No" %> | <%= deep.description ?? "" %> |
 <% }) -%>
 
@@ -57,14 +57,14 @@
 
 <% it.composition.forEach(item => { -%>
 <% if (item.ref) { -%>
-- [<%= item.ref %>](<%= it.toFileName(item.ref) %>.md)
+- [<%= item.ref %>](<%= it.getSchemaRelativePath(it.currentPrefix, item.ref) %>)
 <% } else { -%>
 - (inline schema)
 <% } -%>
 <% }) -%>
 <% } else if (it.type === "array" && it.items) { -%>
 <% if (it.items.ref) { -%>
-Array of [<%= it.items.ref %>](<%= it.toFileName(it.items.ref) %>.md)
+Array of [<%= it.items.ref %>](<%= it.getSchemaRelativePath(it.currentPrefix, it.items.ref) %>)
 <% } else { -%>
 Array of object
 <% } -%>

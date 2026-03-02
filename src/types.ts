@@ -175,7 +175,7 @@ export interface Renderer {
 	renderSkill(doc: SkillDocument): string;
 	renderResource(doc: ResourceDocument): string;
 	renderOperation(doc: OperationDocument): string;
-	renderSchema(doc: SchemaDocument): string;
+	renderSchema(doc: SchemaDocument, currentPrefix?: string): string;
 	renderSchemaIndex(group: SchemaGroupDocument): string;
 	renderAuthentication(schemes: AuthSchemeDocument[]): string;
 }

@@ -5,7 +5,7 @@
 
 > **About This Repo**
 >
-> This is a fork of [neutree-ai/openapi-to-skills](https://github.com/neutree-ai/openapi-to-skills) by [neutree-ai](https://github.com/neutree-ai).
+> This is a fork of [neutree-ai/openapi-to-skills](https://github.com/neutree-ai/openapi-to-skills).
 >
 > This fork maintains the core functionality while publishing under the `@lionad` npm scope for personal use.
 

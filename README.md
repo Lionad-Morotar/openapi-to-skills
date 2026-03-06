@@ -1,7 +1,13 @@
 # openapi-to-skills
 
-[![codecov](https://codecov.io/gh/neutree-ai/openapi-to-skills/graph/badge.svg?branch=main)](https://codecov.io/gh/neutree-ai/openapi-to-skills)
+[![codecov](https://codecov.io/gh/Lionad-Morotar/openapi-to-skills/graph/badge.svg?branch=main)](https://codecov.io/gh/Lionad-Morotar/openapi-to-skills)
 [![npm version](https://img.shields.io/npm/v/@lionad/openapi-to-skills?logo=npm)](https://www.npmjs.com/package/@lionad/openapi-to-skills)
+
+> **About This Repo**
+>
+> This is a fork of [neutree-ai/openapi-to-skills](https://github.com/neutree-ai/openapi-to-skills) by [neutree-ai](https://github.com/neutree-ai).
+>
+> This fork maintains the core functionality while publishing under the `@lionad` npm scope for personal use.
 
 Convert OpenAPI specifications into [Agent Skills](https://agentskills.io/) format - structured markdown documentation that minimizes context size for AI agents.
 

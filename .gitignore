@@ -32,6 +32,7 @@ output/
 
 # Claude Code
 .claude/
+.claude-flow/
 
 # Cache
 .cache/
@@ -44,3 +45,4 @@ coverage/
 
 examples/input/service-gpt.json
 examples/output/service-gpt-api/
+

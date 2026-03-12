@@ -7,6 +7,14 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [0.2.5] - 2026-03-12
+
+### Fixed
+
+- Fix array type handling for schema references (e.g., `FileSimpleDTO[]`)
+- Update enum truncation threshold from 3 to 99 values for better visibility
+- Fix schema template to display full type in links (e.g., `Tag[]` instead of `Tag`)
+
 ## [0.2.4] - 2026-03-02
 
 ### Fixed

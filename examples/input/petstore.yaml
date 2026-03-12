@@ -137,6 +137,8 @@ paths:
           - available
           - pending
           - sold
+          - whatever
+          - unknown
       responses:
         "200":
           description: successful operation

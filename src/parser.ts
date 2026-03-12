@@ -428,16 +428,17 @@ export class Parser {
 				field.nestedFields = this.parseFields(schema);
 			}
 
-			// Handle array of inline objects
-			if (
-				schema.type === "array" &&
-				"items" in schema &&
-				schema.items &&
-				!isReferenceObject(schema.items)
-			) {
-				const items = schema.items as SchemaObject;
-				if (items.type === "object" && items.properties) {
-					field.nestedFields = this.parseFields(items);
+			// Handle array types
+			if (schema.type === "array" && "items" in schema && schema.items) {
+				if (isReferenceObject(schema.items)) {
+					// Array of schema references (e.g., FileSimpleDTO[])
+					field.schema = { ref: this.getRefName(schema.items.$ref) };
+				} else {
+					// Array of inline objects
+					const items = schema.items as SchemaObject;
+					if (items.type === "object" && items.properties) {
+						field.nestedFields = this.parseFields(items);
+					}
 				}
 			}
 		}
@@ -582,7 +583,7 @@ export class Parser {
 		const s = schema as SchemaObject;
 
 		if (s.enum) {
-			return `enum: ${s.enum.slice(0, 3).join(", ")}${s.enum.length > 3 ? "..." : ""}`;
+			return `enum: ${s.enum.slice(0, 99).join(", ")}${s.enum.length > 99 ? "..." : ""}`;
 		}
 
 		if (s.type === "array" && s.items) {

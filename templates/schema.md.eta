@@ -13,7 +13,7 @@
 |-------|------|----------|-------------|
 <% it.fields.forEach(field => { -%>
 <% let type = field.type; -%>
-<% if (field.schema?.ref) { type = `[${field.schema.ref}](${it.getSchemaRelativePath(it.currentPrefix, field.schema.ref)})`; } -%>
+<% if (field.schema?.ref) { type = `[${type}](${it.getSchemaRelativePath(it.currentPrefix, field.schema.ref)})`; } -%>
 | `<%= field.name %>` | <%= type %> | <%= field.required ? "Yes" : "No" %> | <%= field.description ?? "" %> |
 <% }) -%>
 
@@ -28,7 +28,7 @@
 |-------|------|----------|-------------|
 <% field.nestedFields.forEach(nested => { -%>
 <% let type = nested.type; -%>
-<% if (nested.schema?.ref) { type = `[${nested.schema.ref}](${it.getSchemaRelativePath(it.currentPrefix, nested.schema.ref)})`; } -%>
+<% if (nested.schema?.ref) { type = `[${type}](${it.getSchemaRelativePath(it.currentPrefix, nested.schema.ref)})`; } -%>
 | `<%= nested.name %>` | <%= type %> | <%= nested.required ? "Yes" : "No" %> | <%= nested.description ?? "" %> |
 <% }) -%>
 
@@ -39,7 +39,7 @@
 |-------|------|----------|-------------|
 <% nested.nestedFields.forEach(deep => { -%>
 <% let type = deep.type; -%>
-<% if (deep.schema?.ref) { type = `[${deep.schema.ref}](${it.getSchemaRelativePath(it.currentPrefix, deep.schema.ref)})`; } -%>
+<% if (deep.schema?.ref) { type = `[${type}](${it.getSchemaRelativePath(it.currentPrefix, deep.schema.ref)})`; } -%>
 | `<%= deep.name %>` | <%= type %> | <%= deep.required ? "Yes" : "No" %> | <%= deep.description ?? "" %> |
 <% }) -%>
 

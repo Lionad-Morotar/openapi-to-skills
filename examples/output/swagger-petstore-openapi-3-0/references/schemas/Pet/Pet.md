@@ -10,6 +10,6 @@
 | `name` | string | Yes |  |
 | `category` | [Category](../Category/Category.md) | No |  |
 | `photoUrls` | string[] | Yes |  |
-| `tags` | Tag[] | No |  |
+| `tags` | [Tag[]](../Tag/Tag.md) | No |  |
 | `status` | enum: available, pending, sold | No | pet status in the store |
 

@@ -10,7 +10,7 @@ Multiple status values can be provided with comma separated strings.
 
 | Name | In | Type | Required | Description |
 |------|------|------|----------|-------------|
-| `status` | query | enum: available, pending, sold | Yes | Status values that need to be considered for filter |
+| `status` | query | enum: available, pending, sold, whatever, unknown | Yes | Status values that need to be considered for filter |
 
 ## Responses
 
